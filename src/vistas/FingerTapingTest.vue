@@ -16,14 +16,57 @@
       </v-card-title>
   
       <v-card-text class="headline font-weight-bold">
-        Por favor, haga tapping en esta zona azul al ritmo que se le pida
+        {{texto}}
       </v-card-text>      
+      <v-card-actions>
+           <v-list-tile class="grow">
+            <v-layout
+                align-center
+                justify-end
+            >
+            <div v-if="mostrarBoton">
+                <v-btn @click="comenzarTest" color="success" >Comenzar prueba</v-btn>
+            </div>
+          </v-layout>
+
+           </v-list-tile>
+      </v-card-actions>
     </v-card>  
 </template>
 
 <script>
 export default {
+    data: () => ({
+        texto: "Por favor, haga tapping en esta zona azul conforme al ritmo que se le pida",
+        segundo: 0,
+        mostrarBoton: true,
+        interval: null,
+        tappings: 0,
+        nivel: 0
+    }),
+    methods:{
+        comenzarTest: function (){
+           if(this.mostrarBoton){
+               this.mostrarBoton = false
+           }
+           comenzarCuentaRegresiva()
 
+        },
+        comenzarCuentaRegresiva: function(){
+            this.interval = setInterval(() => {
+            this.segundo++            
+            }, 1000)
+        }        
+    },
+    computed: {
+        segundo: function(){
+            if(this.segundo >= 10){
+                clearInterval(this.interval)
+                
+            }
+            
+        }
+    },
 }
 </script>
 
