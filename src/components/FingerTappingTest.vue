@@ -42,31 +42,35 @@ export default {
         mostrarBoton: true,
         interval: null,
         tappings: 0,
-        nivel: 0
+        nivel: 0,
+        mostrarDialogo: false
     }),
     methods:{
         comenzarTest: function (){
            if(this.mostrarBoton){
                this.mostrarBoton = false
            }
-           comenzarCuentaRegresiva()
+           this.comenzarCuentaRegresiva()
 
         },
         comenzarCuentaRegresiva: function(){
             this.interval = setInterval(() => {
-            this.segundo++            
+            this.segundo++   
+            console.log(this.segundo)         
             }, 1000)
         }        
     },
     computed: {
-        segundo: function(){
-            if(this.segundo >= 10){
-                clearInterval(this.interval)
-                
-            }
-            
-        }
+        
     },
+    watch: {
+        segundo(nuevoSegundo){
+            if(nuevoSegundo >= 10){
+                clearInterval(this.interval)                
+                this.mostrarDialogo = true                
+            }            
+        }
+    }
 }
 </script>
 

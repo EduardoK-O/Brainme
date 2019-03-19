@@ -137,7 +137,8 @@
             
             <boton-flotante/>
           </v-layout>
-        </v-container>        
+        </v-container>       
+        <tapping/> 
       </v-card>      
 </template>
 
@@ -145,6 +146,7 @@
 import Hanoi from "../assets/hanioTrans.png"
 import BotonJugar from "../components/BotonJugar.vue"
 import BotonFlotante from "../components/BotonFlotante.vue"
+import Tapping from "../components/FingerTappingTest.vue"
 export default {
     props:{
         titulo:String
@@ -157,7 +159,7 @@ export default {
             }            
         }
     },
-    components:{ BotonJugar, BotonFlotante}
+    components:{ BotonJugar, BotonFlotante, Tapping}
     
 }
 </script>
