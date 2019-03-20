@@ -5,7 +5,8 @@ Vue.use(Vuex)
 
 import moduloUsuario from './usuario'
 import moduloPaciente from './pacientes'
+import moduloEventos from './eventos'
 
 export default new Vuex.Store({
-    modules:[moduloUsuario, moduloPaciente]
+    modules:[moduloUsuario, moduloPaciente, moduloEventos]
 })

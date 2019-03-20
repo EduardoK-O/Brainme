@@ -51,6 +51,7 @@ export default {
                this.mostrarBoton = false
            }
            this.comenzarCuentaRegresiva()
+           this.texto = 'Tapping aqui'
 
         },
         comenzarCuentaRegresiva: function(){
@@ -59,10 +60,7 @@ export default {
             console.log(this.segundo)         
             }, 1000)
         }        
-    },
-    computed: {
-        
-    },
+    },   
     watch: {
         segundo(nuevoSegundo){
             if(nuevoSegundo >= 10){
