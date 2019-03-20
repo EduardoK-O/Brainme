@@ -8,7 +8,7 @@ const store = {
         }
     }, 
     mutations:{
-        login(states, mostrarDialogoTapping){
+        change(states, mostrarDialogoTapping){
             states.mostrarDialogoTapping = mostrarDialogoTapping
         }
     }
