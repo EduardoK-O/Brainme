@@ -3,7 +3,7 @@ const store = {
         mostrarDialogoTapping: false
     },
     getters:{
-        getUsuario(state){
+        getMostrarDialogoTapping(state){
             return state.mostrarDialogoTapping
         }
     }, 

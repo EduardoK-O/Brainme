@@ -15,6 +15,11 @@ export default {
             titulo: 'Por favor aumente la velocidad de los tappings',
             mensaje: ['Cómodo', 'Rápido', 'Cómodo', 'Lento']
         }
+    },
+    computed:{
+        eventos(){
+            return this.$store.getters.getMonstrarDialogoTapping()
+        }
     }
 }
 </script>
