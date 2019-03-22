@@ -1,10 +1,11 @@
 <template>
     <v-layout row>
-        <v-flex xs12 sm6 offset-sm3>      
+        <v-flex xs12>      <!-- sm6 offset-sm3-->
             <v-card>
                 <v-toolbar color="transparent" flat>
                     <v-toolbar-title>
                         {{titulo}}
+                        
                     </v-toolbar-title>
                     <v-spacer></v-spacer>
                     <v-btn icon>
@@ -31,10 +32,10 @@ export default {
     props:{
         titulo: String,
         pacientes: Array,
-        agragarPaciente: Function
+        agregarPaciente: Function
     },
-    data:{
-        return: {
+    data(){
+        return {
             pacienteNuevo: {}
         }
     },

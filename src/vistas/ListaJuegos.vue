@@ -34,7 +34,7 @@
                       <div>
                         <div class="headline">Prueba de Torres de Hanoi</div>
                         <div>Descripcion super chula</div>
-                        <div>El autor de este pinchi juego</div>
+                        <div>Anonimo</div>
                       </div>
                     </v-card-title>
                   </v-flex>
@@ -63,7 +63,7 @@
                       <div>
                         <div class="headline">Prueba Finger Tapping</div>
                         <div>Descripcion super chula</div>
-                        <div>El autor de este pinchi juego</div>
+                        <div>Variación hecho por Fernanda</div>
                       </div>
                     </v-card-title>
                   </v-flex>
@@ -92,7 +92,7 @@
                       <div>
                         <div class="headline">Prueba de Memoria de Trabajo Visual</div>
                         <div>Descripcion super chula</div>
-                        <div>El autor de este pinchi juego</div>
+                        <div>Variación hecho por Fernanda</div>
                       </div>
                     </v-card-title>
                   </v-flex>
@@ -139,7 +139,7 @@
           </v-layout>
         </v-container>       
         <tapping/> 
-        <pacientes/>
+        <vista/>
       </v-card>      
 </template>
 
@@ -149,7 +149,7 @@ import BotonJugar from "../components/BotonJugar.vue"
 import BotonFlotante from "../components/BotonFlotante.vue"
 import Tapping from "../components/FingerTappingTest.vue"
 import Pacientes from "../components/ListaPacientes.vue"
-
+import Vista from "./VistaListaPacientes.vue"
 export default {
     props:{
         titulo:String
@@ -162,7 +162,7 @@ export default {
             }            
         }
     },
-    components:{ BotonJugar, BotonFlotante, Tapping, Pacientes}
+    components:{ BotonJugar, BotonFlotante, Tapping, Pacientes, Vista}
     
 }
 </script>

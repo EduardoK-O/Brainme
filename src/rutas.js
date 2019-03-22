@@ -30,7 +30,7 @@ const rutas = [
             {
                 path:'',
                 component: ListaJuegos
-            }
+            }            
         ]
     }
 ]

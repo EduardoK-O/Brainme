@@ -1,5 +1,5 @@
 const store = {
-    states:{
+    state:{
         usuario: null
     },
     getters:{

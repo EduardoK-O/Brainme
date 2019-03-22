@@ -1,20 +1,42 @@
 import { reject } from "q";
 
 const store = {
-    states:{
-        pacientes:[]
+    state:{
+        pacientes:[
+            {
+                id: 1,
+                avatar: null,
+                nombre: 'Alejandro Sanchez Queb',
+                edad: '23',
+                observacion: 'Desarrollador de software'
+            },
+            {
+                id: 2,
+                avatar: null,
+                nombre: 'Alejandra Colli',
+                edad: '23',
+                observacion: 'Diseñadora'
+            },
+            {
+                id: 3,
+                avatar: null,
+                nombre: 'Kevin Gamboa Colli',
+                edad: '23',
+                observacion: 'Desarrollador movil'
+            }
+        ]
     },
     getters:{
        getPacientes(state){
-            return states.pacientes
+            return state.pacientes
        },
-       getListaPorID(state){
+       getPacientePorLista(state){
            return usuarioID =>state.pacientes.filter(paciente => paciente.usuarioID == usuarioID)
        }
     }, 
     mutations:{
         agregarPaciente(state, paciente){
-            states.pacientes.push(paciente)
+            state.pacientes.push(paciente)
         },
         actualizarPaciente(state, paciente){
             let index = states.pacientes.findIndex(pac => pac.id == paciente.id )

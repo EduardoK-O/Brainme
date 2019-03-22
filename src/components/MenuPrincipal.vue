@@ -14,13 +14,13 @@
                 <v-list-tile-action> 
                     <v-icon>assignment_ind</v-icon>
                 </v-list-tile-action>
-                <v-list-tile-title>Mis Pacientes</v-list-tile-title>
+                <v-list-tile-title>Mis pacientes</v-list-tile-title>
             </v-list-tile>
              <v-list-tile>
                 <v-list-tile-action> 
                     <v-icon>line_weight</v-icon>
                 </v-list-tile-action>
-                <v-list-tile-title>Listas de pacientes</v-list-tile-title>
+                <v-list-tile-title>Mis listas de pacientes</v-list-tile-title>
                 <v-list-tile-action> 
                     <v-chip color="green" small dark>4</v-chip>
                 </v-list-tile-action>
