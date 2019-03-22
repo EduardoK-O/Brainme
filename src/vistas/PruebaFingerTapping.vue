@@ -18,6 +18,7 @@ export default {
     },
     computed:{
         eventos(){
+            
             return this.$store.getters.getMonstrarDialogoTapping()
         }
     }

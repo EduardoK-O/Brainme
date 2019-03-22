@@ -4,7 +4,7 @@
             <v-card>
                 <v-toolbar color="transparent" flat>
                     <v-toolbar-title>
-                        Mis Pacientes
+                        {{titulo}}
                     </v-toolbar-title>
                     <v-spacer></v-spacer>
                     <v-btn icon>
@@ -15,8 +15,8 @@
                     <v-subheader>                                                    
                         pacientes
                     </v-subheader>
-                    <template v-for="(paciente, index) in pacientes">                        
-                        <paciente :key="paciente.nombre" :paciente="paciente" :esUltimoPaciente="pacientes.length - 1 == index "></paciente>
+                    <template v-for="(pacienteList, index) in pacientes">                        
+                        <paciente :key="pacienteList.Id" :paciente="pacienteList" :esUltimoPaciente="pacientes.length - 1 == index "></paciente>                        
                     </template>
                 </v-list>
             </v-card>
@@ -28,8 +28,15 @@
 import Paciente from '../components/Paciente.vue'
 export default {
     components: {Paciente},
-    computed:{
-        paciente: $state.getters.getPacientes()
+    props:{
+        titulo: String,
+        pacientes: Array,
+        agragarPaciente: Function
+    },
+    data:{
+        return: {
+            pacienteNuevo: {}
+        }
     }
 }
 </script>

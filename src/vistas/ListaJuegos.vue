@@ -139,6 +139,7 @@
           </v-layout>
         </v-container>       
         <tapping/> 
+        <pacientes/>
       </v-card>      
 </template>
 
@@ -147,6 +148,8 @@ import Hanoi from "../assets/hanioTrans.png"
 import BotonJugar from "../components/BotonJugar.vue"
 import BotonFlotante from "../components/BotonFlotante.vue"
 import Tapping from "../components/FingerTappingTest.vue"
+import Pacientes from "../components/ListaPacientes.vue"
+
 export default {
     props:{
         titulo:String
@@ -159,7 +162,7 @@ export default {
             }            
         }
     },
-    components:{ BotonJugar, BotonFlotante, Tapping}
+    components:{ BotonJugar, BotonFlotante, Tapping, Pacientes}
     
 }
 </script>
