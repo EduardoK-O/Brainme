@@ -35,6 +35,9 @@ const store = {
                 }).catch((error)=> reject(error))
             })
         },
+        recuperarPassword({}, email){
+            return firebase.auth().sendPasswordResetEmail(email)
+        },
         crearUsuario({commit}, nuevoUsuario){           
             return new Promise((resolve, reject) => {                
                 firebase.auth().createUserWithEmailAndPassword(nuevoUsuario.email, nuevoUsuario.password).then(() => {
