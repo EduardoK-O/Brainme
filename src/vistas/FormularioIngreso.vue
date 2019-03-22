@@ -6,16 +6,16 @@
             <div>
                 <router-link to="/recuperar" >Olvido su contraseña?</router-link>                
             </div>
-            <v-btn :disabled="!valido" block class="primary elevation-0" :loading="cargandoFormulario" >Login</v-btn>
+            <v-btn :disabled="!valido" block class="primary elevation-0" @click="loginCorreo" :loading="cargandoFormulario" >Login</v-btn>
             <div class="my-2">
                 <router-link class="caption" to="/registrese" >No tiene una cuenta?</router-link>                
             </div>
             <v-divider/>
-            <v-btn :loading="cargandoFormulario" block class='my-3 bg-facebook' dark>
+            <v-btn :loading="cargandoFormulario" @click="loginFacebook" block class='my-3 bg-facebook' dark>
                 <img class="mr-1 mb-1" src="../assets/F_icon.svg" height="16" >
                 facebook
             </v-btn>
-            <v-btn :loading="cargandoFormulario" block>
+            <v-btn :loading="cargandoFormulario" @click="loginGoogle" block>
                 <img class="mr-1 mb-1" src="../assets/G_icon.svg" height="16" >
                 google
             </v-btn>

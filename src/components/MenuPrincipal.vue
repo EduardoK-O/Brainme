@@ -41,7 +41,7 @@
                 <v-list-tile-title>Estadistica</v-list-tile-title>
             </v-list-tile>
             <v-divider/>
-            <v-list-tile>
+            <v-list-tile @click="desconectarse"> 
                 <v-list-tile-action> 
                     <v-icon>exit_to_app</v-icon>
                 </v-list-tile-action>
@@ -77,6 +77,11 @@ export default {
         bus.$on('notificarDrawer', ()=>{
             this.drawer= !this.drawer
         })
+    },
+    methods:{
+        desconectarse(){
+            this.$store.dispatch('logOut')
+        }
     }
 }
 </script>

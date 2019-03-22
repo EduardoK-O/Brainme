@@ -1,3 +1,6 @@
+import firebase from '../firebase'
+import { Promise } from 'q';
+
 const store = {
     state:{
         usuario: null
@@ -14,28 +17,37 @@ const store = {
     },
     actions:{
         loginCorreo({commit}, credenciales){
-            return new Promise((resolve, reject) => {
-                resolve()
-            })
+            return firebase.auth().signInWithEmailAndPassword(credenciales.email, credenciales.password)            
         },
         loginFacebook({commit}){
-            return new Promise((resolve, reject) => {
-                resolve()
-            })
+            let proveedor = new firebase.auth.FacebookAuthProvider()
+            return firebase.auth().signInWithPopup(proveedor)
         },
         loginGoogle({commit}){
             return new Promise((resolve, reject) => {
                 resolve()
             })
         },
-        logOut({commit}){
+        logOut({commit}){            
             return new Promise((resolve, reject) => {
-                resolve()
+                firebase.auth().signOut().then(()=>{
+                    commit('login', null)
+                    resolve()
+                }).catch((error)=> reject(error))
             })
         },
-        crearUsuario({commit}, nuevoUsuario){
-            return new Promise((resolve, reject) => {
-                resolve()
+        crearUsuario({commit}, nuevoUsuario){           
+            return new Promise((resolve, reject) => {                
+                firebase.auth().createUserWithEmailAndPassword(nuevoUsuario.email, nuevoUsuario.password).then(() => {
+                    var user = firebase.auth().currentUser
+                    user.updateProfile({
+                        displayName: nuevoUsuario.nombreCompleto
+                    }).then(()=>{
+                        resolve()
+                    }).catch((error) => {
+                        reject(error)
+                    })
+                }).catch((error) => reject(error))
             })
         }
     }

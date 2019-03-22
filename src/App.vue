@@ -5,7 +5,7 @@
 </template>
 
 <script>
-
+import firebase from './firebase'
 
 export default {
   name: 'App',
@@ -16,6 +16,16 @@ export default {
     return {
       //
     }
+  },
+  beforeCreate(){
+     firebase.auth().onAuthStateChanged((user)=>{
+       if(user){
+         this.$store.commit('login', user)
+         this.$router.push('/panel')
+       }else{
+         this.$router.push('/')
+       }
+     })
   }
 }
 </script>

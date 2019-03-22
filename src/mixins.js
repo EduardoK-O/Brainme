@@ -9,13 +9,13 @@ const mixinFormulario = {
             repetirPassword:'',
             reglasNombre:[
                 (nombre)=> nombre.length > 0 || 'Debe ingresar un nombre valido',
-                (nombre)=> nombre.length <= 15 || 'Debe ingresar un nombre menor a 15 caracteres'
+                (nombre)=> nombre.length <= 40 || 'Debe ingresar un nombre menor a 40 caracteres'
             ],
             reglasEmail:[
                 (email)=> this.validarEmail(email) || 'Ingrese un correo valido'
             ],
             reglasPassword: [
-                (password) => password.length > 8 || 'Debe ingresar una contraseña mayor que 8 caracteres'
+                (password) => password.length >= 8 || 'Debe ingresar una contraseña mayor o igual que 8 caracteres'
             ],
             reglasRepetirPassword:[
                 (repetirPassword) => this.password === repetirPassword || 'Las contraseñas deben coincidir'

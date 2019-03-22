@@ -9,7 +9,7 @@
             </v-text-field>    
              <v-text-field v-model="repetirPassword" label="repita su contraseña" :rules="reglasRepetirPassword" type="password">
             </v-text-field>  
-            <v-btn :loading="cargandoFormulario" :disabled="!valido" color="primary" block>Registrarse</v-btn>  
+            <v-btn @click="crearUsuario" :loading="cargandoFormulario" :disabled="!valido" color="primary" block>Registrarse</v-btn>  
             <router-link to="/">Ya tiene una cuenta?</router-link>
         </v-form>
     </formulario-base>
@@ -32,7 +32,7 @@ export default {
             let nuevoUsuario ={}
             this.cargandoFormulario = true
             nuevoUsuario.nombreCompleto = this.nombreCompleto
-            nuevoUsuario.repetirPassword = this.password
+            nuevoUsuario.password = this.password
             nuevoUsuario.email = this.email
             this.$store.dispatch('crearUsuario', nuevoUsuario).then((usuario) =>{
                 this.cargandoFormulario = false
