@@ -37,6 +37,15 @@ export default {
         return: {
             pacienteNuevo: {}
         }
+    },
+    methods:{
+        agregarPaciente(){
+            this.agragarPaciente(this.pacienteNuevo).then(()=>{
+                this.pacienteNuevo = {}
+            }).catch((error)=>{
+                this.pacienteNuevo = {}
+            })
+        }
     }
 }
 </script>
