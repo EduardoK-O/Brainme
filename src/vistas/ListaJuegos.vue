@@ -133,23 +133,17 @@
                   
                 </v-card-actions>
               </v-card>
-            </v-flex>
-            
-            <boton-flotante/>
+            </v-flex>                        
           </v-layout>
-        </v-container>       
-        <tapping/> 
-        <vista/>
+        </v-container>               
       </v-card>      
 </template>
 
 <script>
 import Hanoi from "../assets/hanioTrans.png"
 import BotonJugar from "../components/BotonJugar.vue"
-import BotonFlotante from "../components/BotonFlotante.vue"
 import Tapping from "../components/FingerTappingTest.vue"
-import Pacientes from "../components/ListaPacientes.vue"
-import Vista from "./VistaListaPacientes.vue"
+
 export default {
     props:{
         titulo:String
@@ -162,7 +156,7 @@ export default {
             }            
         }
     },
-    components:{ BotonJugar, BotonFlotante, Tapping, Pacientes, Vista}
+    components:{ BotonJugar , Tapping}
     
 }
 </script>

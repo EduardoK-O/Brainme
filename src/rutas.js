@@ -9,6 +9,8 @@ import FormularioRecuperar from './vistas/FormularioRecuperar.vue'
 import PanelPrincipal from './vistas/PanelPrincipal.vue'
 
 import ListaJuegos from './vistas/ListaJuegos.vue'
+import VistaListaPacientes from './vistas/VistaListaPacientes.vue'
+import PruebaFingerTapping from './vistas/PruebaFingerTapping.vue'
 
 const rutas = [
     {
@@ -28,8 +30,12 @@ const rutas = [
         component:PanelPrincipal,
         children:[
             {
-                path:'',
-                component: ListaJuegos
+                path:'pruebas',
+                component: ListaJuegos,                
+            },
+            {
+                path:'pacientes/:id',
+                component: VistaListaPacientes
             }            
         ]
     }

@@ -10,7 +10,7 @@
                 </v-list-tile>                
             </v-list-tile>
             <v-divider/>
-             <v-list-tile>
+             <v-list-tile to='/panel/pacientes'>
                 <v-list-tile-action> 
                     <v-icon>assignment_ind</v-icon>
                 </v-list-tile-action>
@@ -25,7 +25,7 @@
                     <v-chip color="green" small dark>4</v-chip>
                 </v-list-tile-action>
             </v-list-tile> 
-            <v-list-tile>
+            <v-list-tile to="/panel/pruebas"> 
                 <v-list-tile-action> 
                     <v-icon>assignment</v-icon>
                 </v-list-tile-action>

@@ -1,16 +1,20 @@
 <template>
-    <lista-pacientes 
+    <div>
+        <lista-pacientes 
         titulo="Mis pacientes" 
         :pacientes="pacientes" 
         :agregarPaciente="agregarPaciente"/>
+        <boton-flotante/>    
+    </div>    
 </template>
 
 <script>
 import ListaPacientes from '../components/ListaPacientes.vue'
+import BotonFlotante from '../components/BotonFlotante.vue'
 import { resolve, reject } from 'q';
-// panel/listas/ :id
+// panel/pacientes/ :id
 export default {
-    components:{ListaPacientes},
+    components:{ListaPacientes, BotonFlotante},
     computed:{
         pacientes(){
             let id = this.$route.params.id
