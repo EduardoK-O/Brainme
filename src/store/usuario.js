@@ -24,9 +24,8 @@ const store = {
             return firebase.auth().signInWithPopup(proveedor)
         },
         loginGoogle({commit}){
-            return new Promise((resolve, reject) => {
-                resolve()
-            })
+            let proveedor = new firebase.auth.GoogleAuthProvider()
+            return firebase.auth().signInWithPopup(proveedor)
         },
         logOut({commit}){            
             return new Promise((resolve, reject) => {
