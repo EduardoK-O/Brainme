@@ -136,10 +136,11 @@
             </v-flex>                        
           </v-layout>
         </v-container>      
-        
+        <progresion/>                
         <dialogo-test mostrarTest="true">
           <tapping slot="test"/>              
         </dialogo-test>   
+
       </v-card>      
 </template>
 
@@ -147,6 +148,7 @@
 import Hanoi from "../assets/hanioTrans.png"
 import BotonJugar from "../components/BotonJugar.vue"
 import Tapping from "../components/FingerTappingTest.vue"
+import Progresion from "../components/CuadrosProgresionTest.vue"
 import DialogoTest from "../components/DialogoParaTest.vue"
 
 export default {
@@ -161,7 +163,7 @@ export default {
             }            
         }
     },
-    components:{ BotonJugar , Tapping, DialogoTest}
+    components:{ BotonJugar , Tapping, DialogoTest, Progresion}
     
 }
 </script>
