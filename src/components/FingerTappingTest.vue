@@ -4,6 +4,7 @@
       color="#26c6da"
       dark
       max-width="400"
+      @click="agregarTapping"
     >
       <v-card-title>
         <v-icon
@@ -30,20 +31,23 @@
           </v-layout>
 
            </v-list-tile>
-      </v-card-actions>
+      </v-card-actions>      
     </v-card>  
 </template>
 
 <script>
-export default {
+import bus from '../bus'
+
+export default {    
     data: () => ({
         texto: "Por favor, haga tapping en esta zona azul conforme al ritmo que se le pida",
         segundo: 0,
         mostrarBoton: true,
         interval: null,
         tappings: 0,
-        nivel: 0,
-        mostrarDialogo: false
+        nivelActual: 0,        
+        tappings: 0,
+        nivel: [1,2,3,4]
     }),
     methods:{
         comenzarTest: function (){
@@ -54,18 +58,37 @@ export default {
            this.texto = 'Tapping aqui'
 
         },
-        comenzarCuentaRegresiva: function(){
+        comenzarCuentaRegresiva: function(){            
             this.interval = setInterval(() => {
             this.segundo++   
             console.log(this.segundo)         
             }, 1000)
-        }        
+        },
+        agregarTapping(){
+          this.tappings++
+          console.log("Numero de taps: "+ this.tappings)
+        }
     },   
     watch: {
         segundo(nuevoSegundo){
-            if(nuevoSegundo >= 10){
-                clearInterval(this.interval)                
-                this.mostrarDialogo = true                
+            if( nuevoSegundo == 40){
+              clearInterval(this.interval)
+            }else if(nuevoSegundo%10 == 0){                       
+                switch(nuevoSegundo){
+                  case 10:
+                    bus.$emit('mostrarDialogoNivel', this.nivel[0])                                     
+                    break
+                  case 20:
+                    bus.$emit('mostrarDialogoNivel', this.nivel[1])
+                    break
+                  case 30:
+                    bus.$emit('mostrarDialogoNivel', this.nivel[2])
+                    break
+                  case 40:
+                    bus.$emit('mostrarDialogoNivel', this.nivel[3])
+                    break
+                }                
+                                              
             }            
         }
     }

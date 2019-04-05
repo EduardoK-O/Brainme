@@ -3,6 +3,7 @@
         <barra-superior/>
         <menu-principal/>
         <dialogo-actualizar-paciente/>
+        <dialogo-nivel/>
         <v-content>
             <v-container>
                 <v-layout>
@@ -19,8 +20,9 @@
 import BarraSuperior from '../components/BarraSuperior.vue'
 import MenuPrincipal from '../components/MenuPrincipal.vue'
 import DialogoActualizarPaciente from '../components/DialogoActualizarPaciente.vue'
+import DialogoNivel from '../components/DialogoNivel.vue'
 export default {
-    components:{BarraSuperior, MenuPrincipal, DialogoActualizarPaciente}
+    components:{BarraSuperior, MenuPrincipal, DialogoActualizarPaciente, DialogoNivel}
 }
 </script>
 
