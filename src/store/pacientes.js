@@ -55,7 +55,7 @@ const store = {
             paciente.archivos = []
             let user = firebase.auth().currentUser
             paciente.userID = user.uid
-            db.collection('pacientes').add(tarea)            
+            db.collection('pacientes').add(paciente)            
        },
        eliminarPaciente({}, paciente){
             return new Promise((resolve, reject) => {
