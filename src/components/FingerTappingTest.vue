@@ -1,10 +1,10 @@
 <template>    
     <v-card
-      class="mx-auto finggerTapping"
-      color="#26c6da"
+      class="mx-auto finggerTapping"      
       dark
       max-width="400"
       @click="agregarTapping"
+      :style="myStyle"
     >
       <v-card-title>
         <v-icon
@@ -42,54 +42,111 @@ export default {
         texto: "Por favor, haga tapping en esta zona azul conforme al ritmo que se le pida",
         segundo: 0,
         mostrarBoton: true,
+        pruebaEnCurso: false,
         interval: null,
-        tappings: 0,
-        nivelActual: 0,        
-        tappings: 0,
-        nivel: [1,2,3,4],
-        intervalo: 1000
+        tappings: 0,                
+        nivelActual: 0,              
+        intervalo: 1000,
+        mensajeMostrar: [
+                          'Tapping a un ritmo cómodo',
+                          'Tapping a un ritmo rápido',
+                          'Tapping a un ritmo cómodo',
+                          'Tapping a un ritmo lento ',
+                          'Prueba finalizada'
+                          ],
+        myStyle:{
+                  backgroundColor:"#26c6da" 
+                },
+        niveles: []
+
     }),
     methods:{
         comenzarTest: function (){
            if(this.mostrarBoton){
-               this.mostrarBoton = false
+               this.mostrarBoton = false               
            }
-           this.comenzarCuentaRegresiva()
-           this.texto = 'Tapping aqui con ritmo cómodo \n \n \n \n'
+           this.pruebaEnCurso = true
+           this.comenzarCuentaRegresiva()           
 
         },
         comenzarCuentaRegresiva: function(){            
             this.interval = setInterval(() => {
-            this.segundo++   
-            console.log(this.segundo)         
+            this.segundo++               
             }, this.intervalo)
         },
         agregarTapping(){
-          this.tappings++
-          console.log("Numero de taps: "+ this.tappings)
+          if(this.pruebaEnCurso){
+            this.tappings++
+          }          
         }
     },   
     watch: {
-        segundo(nuevoSegundo){
-            if( nuevoSegundo == 40){
+        segundo(nuevoSegundo){                                  
+          switch(nuevoSegundo){
+            case 1:
+              this.nivelActual++              
+              this.texto = this.mensajeMostrar[0]
+              this.myStyle.backgroundColor = "#0097A7" 
+              this.niveles.push({                
+                pacienteID: '',
+                usuarioID: '',
+                nivel: this.nivelActual,
+                tappings: 0,
+                media: 0
+              })                                                                      
+              break
+            case 10:
+              this.tappings = 0
+              this.nivelActual++              
+              this.texto = this.mensajeMostrar[1]
+              this.myStyle.backgroundColor = "#0091EA"  
+              this.niveles.push({                
+                pacienteID: '',
+                usuarioID: '',
+                nivel: this.nivelActual,
+                tappings: 0,
+                media: 0
+              } )                             
+              break
+            case 20:
+              this.tappings = 0
+              this.nivelActual++              
+              this.texto = this.mensajeMostrar[2]
+              this.myStyle.backgroundColor = "#00796B"   
+              this.niveles.push({                
+                pacienteID: '',
+                usuarioID: '',
+                nivel: this.nivelActual,
+                tappings: 0,
+                media: 0
+              } )                            
+              break
+            case 30:
+              this.tappings = 0
+              this.nivelActual++              
+              this.texto = this.mensajeMostrar[3]
+              this.myStyle.backgroundColor = "#004D40"                            
+              this.niveles.push({                
+                pacienteID: '',
+                usuarioID: '',
+                nivel: this.nivelActual,
+                tappings: 0,
+                media: 0
+              } )   
+              break
+            case 40:
+              this.texto = this.mensajeMostrar[4]
+              this.myStyle.backgroundColor = "#26c6da"  
+              this.pruebaEnCurso = false                  
               clearInterval(this.interval)
-            }else if(nuevoSegundo%10 == 0){                       
-                switch(nuevoSegundo){
-                  case 10:
-                    bus.$emit('mostrarDialogoNivel', this.nivel[0])                                     
-                    break
-                  case 20:
-                    bus.$emit('mostrarDialogoNivel', this.nivel[1])
-                    break
-                  case 30:
-                    bus.$emit('mostrarDialogoNivel', this.nivel[2])
-                    break
-                  case 40:
-                    bus.$emit('mostrarDialogoNivel', this.nivel[3])
-                    break
-                }                
-                                              
-            }            
+              //bus.$emit('mostrarDialogoNivel', this.nivel[3])
+              this.niveles.forEach(nivel => {
+                nivel.media = nivel.tappings/10
+              })
+              console.log(this.niveles)              
+              break
+          }                
+          this.niveles[this.niveles.length - 1].tappings = this.tappings                                                
         }
     }
 }
