@@ -47,7 +47,8 @@ export default {
         tappings: 0,
         nivelActual: 0,        
         tappings: 0,
-        nivel: [1,2,3,4]
+        nivel: [1,2,3,4],
+        intervalo: 1000
     }),
     methods:{
         comenzarTest: function (){
@@ -62,7 +63,7 @@ export default {
             this.interval = setInterval(() => {
             this.segundo++   
             console.log(this.segundo)         
-            }, 1000)
+            }, this.intervalo)
         },
         agregarTapping(){
           this.tappings++
