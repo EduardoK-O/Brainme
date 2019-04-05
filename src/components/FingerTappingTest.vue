@@ -1,6 +1,6 @@
 <template>    
     <v-card
-      class="mx-auto"
+      class="mx-auto finggerTapping"
       color="#26c6da"
       dark
       max-width="400"
@@ -29,7 +29,6 @@
                 <v-btn @click="comenzarTest" color="success" >Comenzar prueba</v-btn>
             </div>
           </v-layout>
-
            </v-list-tile>
       </v-card-actions>      
     </v-card>  
@@ -56,7 +55,7 @@ export default {
                this.mostrarBoton = false
            }
            this.comenzarCuentaRegresiva()
-           this.texto = 'Tapping aqui'
+           this.texto = 'Tapping aqui con ritmo cómodo \n \n \n \n'
 
         },
         comenzarCuentaRegresiva: function(){            
@@ -97,5 +96,7 @@ export default {
 </script>
 
 <style>
-
+.finggerTapping {
+    height: 20em;
+}
 </style>

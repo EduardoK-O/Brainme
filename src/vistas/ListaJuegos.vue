@@ -136,7 +136,7 @@
             </v-flex>                        
           </v-layout>
         </v-container>      
-        <tapping/>         
+        <tapping/>                 
       </v-card>      
 </template>
 
