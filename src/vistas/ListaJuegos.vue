@@ -128,7 +128,7 @@
                 </v-layout>
                 <v-divider light></v-divider>
                 <v-card-actions class="pa-3">
-                  <boton-jugar/>
+                  <boton-jugar/>                  
                   <v-spacer></v-spacer>
                   
                 </v-card-actions>
@@ -136,7 +136,10 @@
             </v-flex>                        
           </v-layout>
         </v-container>      
-        <tapping/>                 
+        
+        <dialogo-test mostrarTest="true">
+          <tapping slot="test"/>              
+        </dialogo-test>   
       </v-card>      
 </template>
 
@@ -144,6 +147,7 @@
 import Hanoi from "../assets/hanioTrans.png"
 import BotonJugar from "../components/BotonJugar.vue"
 import Tapping from "../components/FingerTappingTest.vue"
+import DialogoTest from "../components/DialogoParaTest.vue"
 
 export default {
     props:{
@@ -157,7 +161,7 @@ export default {
             }            
         }
     },
-    components:{ BotonJugar , Tapping}
+    components:{ BotonJugar , Tapping, DialogoTest}
     
 }
 </script>
