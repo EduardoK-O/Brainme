@@ -136,7 +136,8 @@
             </v-flex>                        
           </v-layout>
         </v-container>      
-        <tapping/>                 
+        <tapping/>
+        <progresion/>         
       </v-card>      
 </template>
 
@@ -144,6 +145,7 @@
 import Hanoi from "../assets/hanioTrans.png"
 import BotonJugar from "../components/BotonJugar.vue"
 import Tapping from "../components/FingerTappingTest.vue"
+import Progresion from "../components/CuadrosProgresionTest.vue"
 
 export default {
     props:{
@@ -157,7 +159,7 @@ export default {
             }            
         }
     },
-    components:{ BotonJugar , Tapping}
+    components:{ BotonJugar , Tapping, Progresion}
     
 }
 </script>
