@@ -1,4 +1,6 @@
 import { reject } from "q";
+import firebase from '../firebase'
+const db = firebase.firestore()
 
 const store = {
     state:{
@@ -50,9 +52,10 @@ const store = {
             })
        },
        agregarPaciente({},paciente){
-            return new Promise((resolve, reject) => {
-
-            })
+            paciente.archivos = []
+            let user = firebase.auth().currentUser
+            paciente.userID = user.uid
+            db.collection('pacientes').add(tarea)            
        },
        eliminarPaciente({}, paciente){
             return new Promise((resolve, reject) => {
