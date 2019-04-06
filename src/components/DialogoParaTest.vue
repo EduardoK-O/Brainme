@@ -23,7 +23,7 @@ export default {
 
 </script>
 
-<style>
+<style scope>
 .v-overlay--active:before{
     opacity:0.98;
 }

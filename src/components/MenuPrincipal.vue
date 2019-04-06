@@ -66,7 +66,7 @@ export default {
             if(!usuario){
                 return { 
                     photoURL: imagenPlaceholder,
-                    displayName: "Alex"
+                    displayName: "Unknow"
                 }
             }else{
                 return usuario

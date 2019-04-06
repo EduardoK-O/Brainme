@@ -70,7 +70,8 @@
                 </v-layout>
                 <v-divider light></v-divider>
                 <v-card-actions class="pa-3">
-                  <boton-jugar/>
+                  <boton-jugar @click="mostrarFinger"/>
+                   <v-btn  dark @click="mostrarFinger">Boton de muestra para funcionalidad</v-btn>
                   <v-spacer></v-spacer>
                   
                 </v-card-actions>
@@ -128,19 +129,21 @@
                 </v-layout>
                 <v-divider light></v-divider>
                 <v-card-actions class="pa-3">
-                  <boton-jugar/>                  
+                  <boton-jugar @click="mostrarProgre"/>   
+                  <v-btn  dark @click="mostrarProgre">Boton de muestra para funcionalidad</v-btn>               
                   <v-spacer></v-spacer>
                   
                 </v-card-actions>
               </v-card>
             </v-flex>                        
           </v-layout>
-        </v-container>      
-        <progresion/>                
-        <dialogo-test mostrarTest="true">
-          <tapping slot="test"/>              
+        </v-container>              
+        <dialogo-test :mostrarTest="mostrarProgresion">          
+          <progresion slot="test"/>            
         </dialogo-test>   
-
+        <dialogo-test :mostrarTest="mostrarTappingTest">
+          <tapping slot="test"/>                     
+        </dialogo-test>   
       </v-card>      
 </template>
 
@@ -163,7 +166,21 @@ export default {
             }            
         }
     },
-    components:{ BotonJugar , Tapping, DialogoTest, Progresion}
+    data(){
+      return{
+        mostrarTappingTest: false,
+        mostrarProgresion: false
+      }
+    },
+    components:{ BotonJugar , Tapping, DialogoTest, Progresion},
+    methods:{
+      mostrarFinger(){
+        this.mostrarTappingTest = true
+      },
+      mostrarProgre(){
+        this.mostrarProgresion = true
+      }
+    }
     
 }
 </script>
